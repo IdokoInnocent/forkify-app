@@ -48,7 +48,7 @@
                       class="preview__link"
                       :class="{'preview__link--active': recipe.id === bookmark.id}"
                       @click="renderRecipe(bookmark.id)"
-                      :href="`#${bookmark.id}`"
+                      href="#recipeDetails"
                     >
                       <figure class="preview__fig">
                         <img :src="bookmark.image_url" alt="bookmark.title" />
@@ -100,7 +100,7 @@
       </div>
       <ul class="results" v-else>
         <li class="preview" v-for="allRecipe in allRecipes" :key="allRecipe.id">
-          <a class="preview__link" @click="renderRecipe(allRecipe.id)" :href="`#${allRecipe.id}`"  :class="{'preview__link--active': allRecipe.id === recipe.id}">
+          <a class="preview__link" @click="renderRecipe(allRecipe.id)" href="#recipeDetails"  :class="{'preview__link--active': allRecipe.id === recipe.id}">
             <figure class="preview__fig">
               <img :src="allRecipe.image_url" alt="Test" />
             </figure>
@@ -153,7 +153,7 @@
       </svg>
     </div>
 
-    <div class="recipe">
+    <div class="recipe" id="recipeDetails">
       <template v-if="showMessage">
         <div class="message">
           <div>
